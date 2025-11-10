@@ -1,4 +1,4 @@
-import 'package:SnakeGameFlutter/home_page.dart';
+import 'home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,11 +6,10 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SnakeGameFlutter',
+      title: 'Snake Game Flutter',
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );

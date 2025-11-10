@@ -1,4 +1,4 @@
-import 'package:SnakeGameFlutter/game_page.dart';
+import 'game_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,17 +13,26 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('assets/snake_game.jpg'),
+            // If you don't have the image, replace this with a placeholder:
+            Container(
+              width: 200,
+              height: 200,
+              color: Colors.green,
+              child: Icon(Icons.games, size: 100, color: Colors.white),
+            ),
+            // Image.asset('assets/snake_game.jpg'), // Comment out if no image
 
             SizedBox(height: 50.0),
 
-            Text('Welcome to SnakeGameFlutter', style: TextStyle(color: Colors.white, fontSize: 40.0, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+            Text('Welcome to Snake Game', style: TextStyle(color: Colors.white, fontSize: 40.0, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
 
             SizedBox(height: 50.0),
 
-            FlatButton.icon(
-              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
-              color: Colors.redAccent,
+            TextButton.icon(
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.redAccent,
+                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
+              ),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => GamePage()));
               },

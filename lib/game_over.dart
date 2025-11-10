@@ -1,13 +1,11 @@
-import 'package:SnakeGameFlutter/game_page.dart';
+import 'game_page.dart';
 import 'package:flutter/material.dart';
 
 class GameOver extends StatelessWidget {
 
   final int score;
-
-  GameOver({
-    this.score
-  });
+  final Function onRestart;
+  GameOver({required this.score, required this.onRestart});
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +19,19 @@ class GameOver extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Game Over', style: TextStyle(color: Colors.redAccent, fontSize: 50.0, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic, shadows: [
-                Shadow( // bottomLeft
+                Shadow( 
                   offset: Offset(-1.5, -1.5),
                   color: Colors.black
                 ),
-                Shadow( // bottomRight
+                Shadow( 
                   offset: Offset(1.5, -1.5),
                   color: Colors.black
                 ),
-                Shadow( // topRight
+                Shadow( 
                   offset: Offset(1.5, 1.5),
                   color: Colors.black
                 ),
-                Shadow( // topLeft
+                Shadow( 
                   offset: Offset(-1.5, 1.5),
                   color: Colors.black
                 ),
@@ -46,11 +44,13 @@ class GameOver extends StatelessWidget {
 
             SizedBox(height: 50.0),
 
-            FlatButton.icon(
-              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
-              color: Colors.redAccent,
+            TextButton.icon(
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.redAccent,
+                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
+              ),
               onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => GamePage()));
+                onRestart();
               },
               icon: Icon(Icons.refresh, color: Colors.white, size: 30.0),
               label: Text("Try Again", style: TextStyle(color: Colors.white, fontSize: 20.0))
